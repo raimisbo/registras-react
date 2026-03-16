@@ -6,8 +6,10 @@ import UsersPage from "./pages/UsersPage.jsx";
 import UserDetailsPage from "./pages/UserDetailsPage.jsx";
 import ItemDetailsPage from "./pages/ItemDetailsPage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
+import DjangoPozicijosPage from "./pages/DjangoPozicijosPage.jsx";
+import ReactDashboardPage from "./pages/ReactDashboardPage.jsx";
 
-const THEME_KEY = "my-react-theme-v2"; // "auto" | "light" | "dark"
+const THEME_KEY = "my-react-theme-v2";
 
 function applyTheme(resolvedTheme) {
   const root = document.documentElement;
@@ -42,8 +44,10 @@ function TopBar({ themeMode, onCycleTheme }) {
           <NavLink to="/items" className={pill}>Items</NavLink>
           <NavLink to="/users" className={pill}>Users</NavLink>
           <NavLink to="/settings" className={pill}>Settings</NavLink>
+          <NavLink to="/django-pozicijos" className={pill}>Django Pozicijos</NavLink>
+          <NavLink to="/dashboard-react" className={pill}>Dashboard React</NavLink>
 
-          <button className="btn" onClick={onCycleTheme} style={{ padding: "8px 12px" }} title="Theme: Auto → Light → Dark">
+          <button className="btn" onClick={onCycleTheme} style={{ padding: "8px 12px" }}>
             {label}
           </button>
         </div>
@@ -54,7 +58,6 @@ function TopBar({ themeMode, onCycleTheme }) {
 
 export default function App() {
   const [themeMode, setThemeMode] = useState(getInitialMode);
-
   const resolvedTheme = useMemo(() => resolveTheme(themeMode), [themeMode]);
 
   useEffect(() => {
@@ -95,6 +98,8 @@ export default function App() {
         <Route path="/users" element={<UsersPage />} />
         <Route path="/users/:id" element={<UserDetailsPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/django-pozicijos" element={<DjangoPozicijosPage />} />
+        <Route path="/dashboard-react" element={<ReactDashboardPage />} />
         <Route path="*" element={<div className="container">404</div>} />
       </Routes>
     </div>
