@@ -241,3 +241,8 @@ a:hover{ text-decoration: underline; }
   background: rgba(0,113,227,0.14);
   transform: scale(0.998);
 }
+
+.row--selected{
+  background: rgba(0,113,227,0.14) !important;
+  box-shadow: inset 3px 0 0 #0071e3;
+}
